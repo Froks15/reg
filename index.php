@@ -66,14 +66,19 @@ if (isset($_POST['reg'])) {
 
 
 	if ($login && $password && $email) {
-		$connect->query ("INSERT INTO `users` (`login`, `password`, `email`) VALUES ('$login', '$password', '$email') ");
+
+		$result = $connect->query('SELECT login FROM users WHERE login = "' . $login . '"');
+		if (mysqli_num_rows($result) > 0) {
+			echo 'Логин занят';
+		} else {
+			echo 'Регистрация прошла успешно!';
+			$connect->query ("INSERT INTO `users` (`login`, `password`, `email`) VALUES ('$login', '$password', '$email') ");
+		}
+
+
 	}
 
 
-	$result = $connect->query ( "SELECT login FROM `users` WHERE login == '$login' ") or die;
-
-	$cols = mysql_num_rows($result);
-	echo $cols;
 
 
 	/********* Записываем в БД *********/
