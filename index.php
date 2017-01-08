@@ -70,7 +70,10 @@ if (isset($_POST['reg'])) {
 	}
 
 
-	$result = $connect->query ("SELECT * FROM `users` ");
+	$result = $connect->query ( "SELECT login FROM `users` WHERE login == '$login' ") or die;
+
+	$cols = mysql_num_rows($result);
+	echo $cols;
 
 
 	/********* Записываем в БД *********/
