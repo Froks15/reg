@@ -12,9 +12,9 @@
 
 <form method="post">
 
-	<input type="text" name="login" placeholder="Введите логин"> <br>
-	<input type="password" name="password" placeholder="Введите пароль"> <br>
-	<input type="email" name="email" placeholder="Введите почту"> <br>
+	<input type="text" name="login" placeholder="Введите логин*"> <br>
+	<input type="password" name="password" placeholder="Введите пароль*"> <br>
+	<input type="email" name="email" placeholder="Введите почту*"> <br>
 	<input type="submit" value="Зарегестрироваться" name="reg">
 
 </form>
@@ -24,10 +24,44 @@
 
 if (isset($_POST['reg'])) {
 
-	$login = $_POST['login'];
-	$password = $_POST['password'];
-	$email = $_POST['email'];
-	
+
+	if( !empty($_POST['login']) ){
+
+		$login = $_POST['login'];
+		$login = htmlspecialchars($login);
+		$login = trim($login);
+		$login = stripslashes($login);
+		$login = strip_tags($login);
+
+	} else {
+		echo "<div class='warning'>Введите логин!</div>";
+	}
+
+	if( !empty($_POST['password']) ){
+
+		$password = $_POST['password'];
+		$password = htmlspecialchars($password);
+		$password = trim($password);
+		$password = stripslashes($password);
+		$password = strip_tags($password);
+
+	} else {
+		echo "<div class='warning'>Введите пароль!</div>";
+	}
+
+	if( !empty($_POST['email']) ){
+
+		$email = $_POST['email'];
+		$email = htmlspecialchars($email);
+		$email = trim($email);
+		$email = stripslashes($email);
+		$email = strip_tags($email);
+
+	} else {
+		echo "<div class='warning'>Введите меил!</div>";
+	}
+
+
 }
 
 
