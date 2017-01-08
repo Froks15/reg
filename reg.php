@@ -1,3 +1,4 @@
+
 <?php
 
 if (isset($_POST['reg'])) {
@@ -40,8 +41,17 @@ if (isset($_POST['reg'])) {
     }
 
 
-}
+    /********* Записываем в БД *********/
 
+
+    $connect->query ("INSERT INTO `users` (`login`, `password`, `email`) VALUES ($login, $password, $email) ");
+
+
+    /********* Записываем в БД *********/
+
+
+
+}
 
 
 
