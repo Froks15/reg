@@ -2,3 +2,4 @@
 
 $connect = new mysqli("localhost", "root", "", "reg");
 
+?>
