@@ -62,8 +62,26 @@ class Reg {
 					echo 'Регистрация прошла успешно!';
 				}
 		}
+		
+	}
+	
+	
+	function login_user($login_, $password_){
+	
+		if ($login_!="" && $password_!=""){
 
+			global $connect;
 
+			$result = $connect->query("SELECT login FROM users WHERE login = '$login_' AND password = '$password_'");
+
+			if (mysqli_num_rows($result) > 0) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+		
 	}
 
 
