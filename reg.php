@@ -52,5 +52,7 @@ if (isset($_POST['reg'])) {
 
 </form>
 
+<a href="/">На главную</a>
+
 </body>
 </html>

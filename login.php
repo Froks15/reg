@@ -41,27 +41,20 @@ if (isset($_POST['enter'])) {
 <body>
 
 
-<?php
+<?php if ($_SESSION['enter']) :?>
 
-    if ($_SESSION['enter']) {
-        echo "Привет, " . $_SESSION['enter'] . "<br>";
-        echo "<a href=\"index.php\">На главную</a>";
-    }
+        <span>Привет,</span> <?php echo $_SESSION['enter']; ?>
+        <a href="index.php">На главную</a>
 
-    else {
+<?php else :?>
 
-        echo "  <form method=\"post\">
-                    <input type=\"text\" name=\"login\" placeholder=\"Ваш логин\"> <br>
-                    <input type=\"password\" name=\"password\" placeholder=\"Ваш пароль\"> <br>
-                    <input type=\"submit\" name=\"enter\" value=\"Авторизоваться\"> <br>
-                </form> ";
+    <form method="post">
+        <input type="text" name="login" placeholder="Ваш логин"> <br>
+        <input type="password" name="password" placeholder="Ваш пароль"> <br>
+        <input type="submit" name="enter" value="Авторизоваться"> <br>
+    </form>
 
-}
-
-
-
-
-?>
+<?php endif ?>
 
 
 </body>
