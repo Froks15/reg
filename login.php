@@ -21,15 +21,18 @@ if (isset($_POST['enter'])) {
 
     if ( $user->login_user($login,$password) == true) {
         $_SESSION['enter'] = $login;
+            if ($_SESSION['enter']) {
+                header("Location: index.php");
+            }
     } else {
         echo "Попробуйте еще раз";
     }
 
 }
 
-
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">

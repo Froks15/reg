@@ -11,8 +11,10 @@
 <h1>Главная страница</h1>
 
 <?php if ($_SESSION['enter']) :?>
-    <span>Привет,</span> <?php echo $_SESSION['enter'];?>
-    <h4 style="color:red">Информация, которая доступная только авторизованному пользователю.</h4>
+    <span>Привет,</span> <span><?php echo $_SESSION['enter'];?></span>
+    <form action="logout.php" method="post">
+        <input type="submit" value="Выйти">
+    </form>
 <?php else :?>
     <a href="reg.php">Регестрация</a> <br>
     <a href="login.php">Авторизация</a>
