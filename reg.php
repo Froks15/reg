@@ -6,7 +6,7 @@ include_once "class_user.php";
 if (isset($_POST['reg'])) {
 
 	$login = $_POST['login'];
-	$password = $_POST['password'];
+	$password = md5($_POST['password']);
 	$email = $_POST['email'];
 
 

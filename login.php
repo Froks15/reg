@@ -7,7 +7,7 @@ session_start();
 if (isset($_POST['enter'])) {
 
     $login = $_POST['login'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $user = new Reg();
 
